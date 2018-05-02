@@ -9,3 +9,8 @@ python:
 - "3.7-dev" # 3.7 development branch
 # command to run tests
 script: "python simple_tests.py"
+
+before_install:
+- pip install --user cpp-coveralls
+after_success:
+- coveralls --include "balanced.cpp" --gcov-options '\-lp'
